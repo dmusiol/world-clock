@@ -1,14 +1,14 @@
 function displayTime() {
-    // London
+    // madrid
 
-let londonElement = document.querySelector("#london");
-if (londonElement) {
-let londonDateElement = londonElement.querySelector(".date");
-let londonTimeElement = londonElement.querySelector(".time");
-let londonTime = moment().tz("Europe/London");
+let madridElement = document.querySelector("#madrid");
+if (madridElement) {
+let madridDateElement = madridElement.querySelector(".date");
+let madridTimeElement = madridElement.querySelector(".time");
+let madridTime = moment().tz("Europe/madrid");
 
-londonDateElement.innerHTML = londonTime.format("MMMM Do YYYY");
-londonTimeElement.innerHTML = `${londonTime.format("h:mm:ss [<small>]A[</small>]")}`;
+madridDateElement.innerHTML = madridTime.format("MMMM Do YYYY");
+madridTimeElement.innerHTML = `${madridTime.format("h:mm:ss [<small>]A[</small>]")}`;
 }
 
 // New York
@@ -38,7 +38,7 @@ tokyoTimeElement.innerHTML = `${tokyoTime.format("h:mm:ss [<small>]A[</small>]")
 
 function displayCity(event) {
     let cityTimeZone = event.target.value;
-    let cityName = event.target.options[event.target.selectedIndex].text;
+    let cityName = event.target.options[event.target.selectedIndex].text.replace("▫︎", "");
     clearInterval(interval);
 
     updateCityInterval(cityTimeZone, cityName);
